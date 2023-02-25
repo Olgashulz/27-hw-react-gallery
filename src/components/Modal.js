@@ -6,12 +6,13 @@ const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({children, onClose}) => {
     useEffect(() => {
-        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keyup', handleKeyDown);
     }, []);
 
+    // react component unmount
     useEffect(() => {
         return () => {
-            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyDown);
         };
     });
 
